@@ -1,8 +1,8 @@
 
   <table>
-    <tr *ngFor="let row of data">
-      <td *ngFor="let col of row">
-        {{ col }}
+    <tr *ngFor="let row of data; index as y;">
+      <td *ngFor="let col of row; index as x;" >
+         <button  (click)="onClick(col,{x:x,y:y})"   >{{ col }}   </button> 
       </td>
     </tr>
   </table>
