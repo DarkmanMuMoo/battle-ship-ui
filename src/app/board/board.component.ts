@@ -1,17 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core'
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy
+} from '@angular/core'
 import { zip } from 'lodash'
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoardComponent implements OnInit {
   @Input()
   data: number[][]
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.data = zip(...[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]).reverse()
+    this.data = zip(...this.data).reverse()
   }
-
 }
